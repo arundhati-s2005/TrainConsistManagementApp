@@ -4,35 +4,39 @@ public class TrainConsistManagementApp {
     public static void main(String[] args) {
 
         System.out.println("======================================");
-        System.out.println(" UC3 - Track Unique Bogie IDs ");
+        System.out.println(" UC4 - Maintain Ordered Bogie IDs ");
         System.out.println("======================================");
 
-        // Create a Set to store unique bogie IDs
-        Set<String> bogieIds = new HashSet<>();
+        // Create a TreeSet (automatically sorted & no duplicates)
+        SortedSet<String> bogieIds = new TreeSet<>();
 
         // Adding bogie IDs (including duplicates)
+        bogieIds.add("B105");
         bogieIds.add("B101");
-        bogieIds.add("B102");
         bogieIds.add("B103");
-        bogieIds.add("B101"); // duplicate
+        bogieIds.add("B102");
         bogieIds.add("B104");
-        bogieIds.add("B102"); // duplicate
+        bogieIds.add("B101"); // duplicate (ignored)
 
-        // Display all unique bogie IDs
-        System.out.println("\nUnique Bogie IDs in Train:");
+        // Display ordered bogie IDs
+        System.out.println("\nOrdered Bogie IDs:");
         for (String id : bogieIds) {
             System.out.println(id);
         }
 
-        // Check if a bogie ID exists
-        String checkId = "B103";
-        if (bogieIds.contains(checkId)) {
-            System.out.println("\nBogie ID " + checkId + " exists in the train.");
-        } else {
-            System.out.println("\nBogie ID " + checkId + " does NOT exist.");
+        // Remove a bogie ID
+        bogieIds.remove("B103");
+
+        System.out.println("\nAfter removing B103:");
+        for (String id : bogieIds) {
+            System.out.println(id);
         }
 
-        // Total unique bogies
-        System.out.println("\nTotal unique bogies: " + bogieIds.size());
+        // Display first and last bogie ID
+        System.out.println("\nFirst Bogie ID: " + bogieIds.first());
+        System.out.println("Last Bogie ID: " + bogieIds.last());
+
+        // Total count
+        System.out.println("\nTotal bogies: " + bogieIds.size());
     }
 }
