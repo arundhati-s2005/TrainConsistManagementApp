@@ -4,39 +4,35 @@ public class TrainConsistManagementApp {
     public static void main(String[] args) {
 
         System.out.println("======================================");
-        System.out.println(" UC2 - Add Passenger Bogies to Train ");
+        System.out.println(" UC3 - Track Unique Bogie IDs ");
         System.out.println("======================================");
 
-        // Create ArrayList to store passenger bogies
-        List<String> passengerBogies = new ArrayList<>();
+        // Create a Set to store unique bogie IDs
+        Set<String> bogieIds = new HashSet<>();
 
-        // Adding bogies
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC");
-        passengerBogies.add("General");
-        passengerBogies.add("Chair Car");
+        // Adding bogie IDs (including duplicates)
+        bogieIds.add("B101");
+        bogieIds.add("B102");
+        bogieIds.add("B103");
+        bogieIds.add("B101"); // duplicate
+        bogieIds.add("B104");
+        bogieIds.add("B102"); // duplicate
 
-        System.out.println("\nBogies after adding:");
-        System.out.println(passengerBogies);
+        // Display all unique bogie IDs
+        System.out.println("\nUnique Bogie IDs in Train:");
+        for (String id : bogieIds) {
+            System.out.println(id);
+        }
 
-        // Removing a bogie
-        passengerBogies.remove("General");
-
-        System.out.println("\nBogies after removing 'General':");
-        System.out.println(passengerBogies);
-
-        // Checking if a bogie exists
-        String checkBogie = "AC";
-        if (passengerBogies.contains(checkBogie)) {
-            System.out.println("\nBogie '" + checkBogie + "' exists in the train.");
+        // Check if a bogie ID exists
+        String checkId = "B103";
+        if (bogieIds.contains(checkId)) {
+            System.out.println("\nBogie ID " + checkId + " exists in the train.");
         } else {
-            System.out.println("\nBogie '" + checkBogie + "' does NOT exist.");
+            System.out.println("\nBogie ID " + checkId + " does NOT exist.");
         }
 
-        // Display final consist
-        System.out.println("\nFinal Train Consist:");
-        for (int i = 0; i < passengerBogies.size(); i++) {
-            System.out.println((i + 1) + ". " + passengerBogies.get(i));
-        }
+        // Total unique bogies
+        System.out.println("\nTotal unique bogies: " + bogieIds.size());
     }
 }
