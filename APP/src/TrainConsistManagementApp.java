@@ -3,27 +3,40 @@ import java.util.*;
 public class TrainConsistManagementApp {
     public static void main(String[] args) {
 
-        // Display welcome banner
         System.out.println("======================================");
-        System.out.println("   Train Consist Management App   ");
+        System.out.println(" UC2 - Add Passenger Bogies to Train ");
         System.out.println("======================================");
 
-        // Create a dynamic list to store train bogies
-        List<String> trainConsist = new ArrayList<>();
+        // Create ArrayList to store passenger bogies
+        List<String> passengerBogies = new ArrayList<>();
 
-        // Initialize with some default bogies (optional but useful)
-        trainConsist.add("Engine");
-        trainConsist.add("Sleeper Coach");
-        trainConsist.add("AC Coach");
-        trainConsist.add("General Coach");
+        // Adding bogies
+        passengerBogies.add("Sleeper");
+        passengerBogies.add("AC");
+        passengerBogies.add("General");
+        passengerBogies.add("Chair Car");
 
-        // Display initialization message
-        System.out.println("\nTrain initialized successfully...\n");
+        System.out.println("\nBogies after adding:");
+        System.out.println(passengerBogies);
 
-        // Display current consist summary
-        System.out.println("Current Train Consist:");
-        for (int i = 0; i < trainConsist.size(); i++) {
-            System.out.println((i + 1) + ". " + trainConsist.get(i));
+        // Removing a bogie
+        passengerBogies.remove("General");
+
+        System.out.println("\nBogies after removing 'General':");
+        System.out.println(passengerBogies);
+
+        // Checking if a bogie exists
+        String checkBogie = "AC";
+        if (passengerBogies.contains(checkBogie)) {
+            System.out.println("\nBogie '" + checkBogie + "' exists in the train.");
+        } else {
+            System.out.println("\nBogie '" + checkBogie + "' does NOT exist.");
+        }
+
+        // Display final consist
+        System.out.println("\nFinal Train Consist:");
+        for (int i = 0; i < passengerBogies.size(); i++) {
+            System.out.println((i + 1) + ". " + passengerBogies.get(i));
         }
     }
 }
